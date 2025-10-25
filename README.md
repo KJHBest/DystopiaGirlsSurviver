@@ -137,18 +137,76 @@ Assets/
    - 체력이 0이 되면 게임 오버
    - 게임 오버 UI 표시 (추후 구현)
 
-## 필요한 Unity 설정
+## 프로젝트 상태
 
-### 태그 (Tags)
-- `Player`: 플레이어 오브젝트에 설정
-- `Enemy`: 적 오브젝트에 설정
+### 완료된 작업
+- ✅ 모든 C# 스크립트 구현 완료
+- ✅ Unity 프로젝트 구조 생성
+- ✅ 씬 파일 생성 (MainMenu.unity, GameScene.unity)
+- ✅ 프리팹 생성 (Player, Enemy, Projectile)
+- ✅ 프로젝트 설정 파일 생성 (TagManager, InputManager, Physics2D 등)
+- ✅ 패키지 설정 완료 (TextMeshPro, 2D 기능 등)
 
-### 레이어 (Layers)
-- 적 감지를 위한 레이어 설정 필요
+### Unity 에디터에서 추가로 해야 할 작업
 
-### Input Manager
-- Horizontal: A/D 또는 Left/Right
-- Vertical: W/S 또는 Up/Down
+프로젝트를 Unity 에디터에서 열면 다음 작업들이 필요합니다:
+
+1. **MainMenu 씬 설정**
+   - Canvas 추가
+   - EventSystem 추가
+   - MainMenuUI 스크립트 연결
+   - 버튼 UI 구성 (게임 시작, 메타 업그레이드, 설정, 종료)
+
+2. **GameScene 씬 설정**
+   - Player 프리팹을 씬에 배치
+   - EnemySpawner 게임 오브젝트 생성 및 스크립트 연결
+   - Enemy 프리팹을 EnemySpawner에 할당
+   - Canvas 추가하고 GameHUD 스크립트 연결
+   - SkillUpgradeUI Panel 구성
+
+3. **카메라 설정**
+   - GameScene의 카메라가 플레이어를 따라다니도록 스크립트 추가 (선택사항)
+
+4. **프리팹 설정**
+   - AutoWeapon 프리팹 생성하고 Player의 자식으로 추가
+   - AutoWeapon에 Projectile 프리팹 연결
+
+5. **SkillUpgradeData 생성**
+   - Assets/Data 폴더에 SkillUpgradeData ScriptableObject 생성
+   - 다양한 스킬 업그레이드 데이터 설정
+
+## Unity에서 프로젝트 열기
+
+```bash
+# Unity Hub에서 프로젝트 추가
+# 또는 Unity 2021.3 LTS 이상 버전으로 프로젝트 폴더 열기
+```
+
+## 이미 설정된 Unity 설정
+
+### 태그 (Tags) - 자동 설정됨
+- `Player`: 플레이어 오브젝트
+- `Enemy`: 적 오브젝트
+- `Projectile`: 발사체
+
+### 레이어 (Layers) - 자동 설정됨
+- Layer 8: Enemy
+- Layer 9: Player
+- Layer 10: Projectile
+
+### Sorting Layers - 자동 설정됨
+- Background (1)
+- Player (2)
+- Enemy (3)
+- Projectile (4)
+- UI (5)
+
+### Input Manager - 자동 설정됨
+- Horizontal: A/D 또는 Left/Right 화살표
+- Vertical: W/S 또는 Up/Down 화살표
+
+### Physics 2D - 자동 설정됨
+- Gravity: (0, 0) - 탑다운 게임을 위한 중력 없음
 
 ## 다음 구현 예정 기능
 
